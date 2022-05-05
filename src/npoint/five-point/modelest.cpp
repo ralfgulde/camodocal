@@ -400,8 +400,8 @@ int cv::Affine3DEstimator::runKernel( const CvMat* m1, const CvMat* m2, CvMat* m
         }                
     }
 
-    CvMat cvA = A;
-    CvMat cvB = B;
+    CvMat cvA = cvMat(A);
+    CvMat cvB = cvMat(B);
     CvMat cvX;
     cvReshape(model, &cvX, 1, 12);
     cvSolve(&cvA, &cvB, &cvX, CV_SVD );
@@ -480,10 +480,10 @@ int cv::estimateAffine3D(InputArray _from, InputArray _to,
     from.convertTo(dFrom, CV_64F);
     to.convertTo(dTo, CV_64F);
     
-    CvMat F3x4 = out;
-    CvMat mask  = inliers;
-    CvMat m1 = dFrom;
-    CvMat m2 = dTo;
+    CvMat F3x4 = cvMat(out);
+    CvMat mask  = cvMat(inliers);
+    CvMat m1 = cvMat(dFrom);
+    CvMat m2 = cvMat(dTo);
     
     const double epsilon = numeric_limits<double>::epsilon();        
     param1 = param1 <= 0 ? 3 : param1;

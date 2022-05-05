@@ -77,8 +77,8 @@ check_include_file_cxx(iso646.h HAVE_ISO646_H)
 
 # XCode and Visual Studio support multiple configurations. In order to tell the
 # which one we have to define the macros separately for each configuration
-add_compiler_flags("-DCMAKE_BUILD_TYPE=Debug"          Debug)
 add_compiler_flags("-DCMAKE_BUILD_TYPE=Release"        Release)
+add_compiler_flags("-DCMAKE_BUILD_TYPE=Debug"          Debug)
 add_compiler_flags("-DCMAKE_BUILD_TYPE=RelWithDebInfo" RelWithDebInfo)
 add_compiler_flags("-DCMAKE_BUILD_TYPE=MinSizeRel"     MinSizeRel)
 

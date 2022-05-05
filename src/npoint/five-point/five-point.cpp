@@ -58,9 +58,9 @@ Mat findEssentialMat( InputArray _points1, InputArray _points2, double focal, Po
 	Mat E(3, 3, CV_64F); 
 	CvEMEstimator estimator; 
 
-	CvMat p1 = points1; 
-	CvMat p2 = points2; 
-	CvMat _E = E;  
+	CvMat p1 = cvMat(points1); 
+	CvMat p2 = cvMat(points2); 
+	CvMat _E = cvMat(E);  
 	CvMat* tempMask = cvCreateMat(1, npoints, CV_8U); 
 	
 	assert(npoints >= 5); 
